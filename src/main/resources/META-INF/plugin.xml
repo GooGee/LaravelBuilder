@@ -9,10 +9,23 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.googee.laravelbuilder.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.googee.laravelbuilder.services.MyProjectService"/>
+
+        <fileEditorProvider order="first" implementation="com.github.googee.laravelbuilder.vfs.BuilderProvider"/>
+        <fileType implementationClass="com.github.googee.laravelbuilder.vfs.BuilderFileType"
+                  name="Laravel Builder" fieldName="instance"/>
+        <virtualFileSystem implementationClass="com.github.googee.laravelbuilder.vfs.BuilderVirtualFileSystem"
+                           key="LaravelBuilder"/>
     </extensions>
 
     <applicationListeners>
         <listener class="com.github.googee.laravelbuilder.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <actions>
+        <action id="com.github.googee.laravelbuilder.action.ShowBuilderAction" icon="/image/icon.svg"
+                class="com.github.googee.laravelbuilder.action.ShowBuilderAction" text="Laravel Builder">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>
