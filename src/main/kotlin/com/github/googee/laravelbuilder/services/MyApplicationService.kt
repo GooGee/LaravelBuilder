@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.googee.laravelbuilder.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.googee.laravelbuilder.MyBundle
 
 class MyApplicationService {
 
