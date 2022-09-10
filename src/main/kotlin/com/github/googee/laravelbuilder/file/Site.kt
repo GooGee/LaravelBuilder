@@ -1,6 +1,5 @@
 package com.github.googee.laravelbuilder.file
 
-import com.github.googee.laravelbuilder.Constant
 import java.net.URLEncoder
 
 class Site {
@@ -24,7 +23,7 @@ class Site {
         }
 
         fun getFullURI(fm: FileManager): String {
-            val uri = getURI(fm) + "?ide=idea&plugin=" + Constant.Title
+            val uri = getURI(fm) + "?ide=idea"
             val file = fm.getBuilderFile(Server)
             if (FileManager.isFile(file)) {
                 val serverURI = FileManager.read(file)
