@@ -73,6 +73,8 @@ tasks {
         }
     }
 
+    makeProperties()
+
     wrapper {
         gradleVersion = properties("gradleVersion")
     }
