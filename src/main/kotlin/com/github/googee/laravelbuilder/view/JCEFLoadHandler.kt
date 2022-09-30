@@ -22,7 +22,8 @@ class JCEFLoadHandler(val view: BuilderView, val cf: CodeFactory) : CefLoadHandl
         text: String?,
         url: String?
     ) {
-        view.showError("Cannot connect to " + Site.URI)
+        val message = text ?: "Error"
+        view.showError(message)
     }
 
     override fun onLoadEnd(p0: CefBrowser?, p1: CefFrame?, httpStatusCode: Int) {
