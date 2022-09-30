@@ -22,8 +22,7 @@ class JCEFLoadHandler(val view: BuilderView, val cf: CodeFactory) : CefLoadHandl
         text: String?,
         url: String?
     ) {
-        val message = text ?: "Error"
-        view.showError(message)
+        view.showError(text ?: "Error")
     }
 
     override fun onLoadEnd(p0: CefBrowser?, p1: CefFrame?, httpStatusCode: Int) {

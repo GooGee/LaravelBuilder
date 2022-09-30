@@ -6,14 +6,14 @@ import com.jetbrains.rd.util.printlnError
 import java.awt.Color
 import javax.swing.*
 
-class BuilderView(val browser: JBCefBrowser) : JPanel() {
+class BuilderView(val browser: JBCefBrowser, getURI: () -> String) : JPanel() {
     private val panel: ErrorPanel
 
     init {
         this.background = Color.white
         this.layout = BoxLayout(this, BoxLayout.PAGE_AXIS)
 
-        panel = ErrorPanel(browser)
+        panel = ErrorPanel(browser, getURI)
         add(panel)
 
         addBrowser()
@@ -26,11 +26,6 @@ class BuilderView(val browser: JBCefBrowser) : JPanel() {
         }
 
         this.add(browser.component)
-    }
-
-    private fun makeIcon(): ImageIcon {
-        val url = javaClass.getResource("/image/loading.gif")
-        return ImageIcon(url)
     }
 
     fun showError(text: String) {

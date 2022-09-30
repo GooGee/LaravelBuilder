@@ -6,13 +6,13 @@ import com.jetbrains.rd.util.printlnError
 import java.awt.Color
 import java.awt.Component
 import java.awt.Desktop
-import java.awt.Insets
 import java.net.URI
 import javax.swing.*
 
 
-class ErrorPanel(val browser: JBCefBrowser) : JPanel() {
+class ErrorPanel(val browser: JBCefBrowser, val getURI: () -> String) : JPanel() {
     private val button: JButton
+    private val error: JLabel
     private val label: JLabel
     private val link: JButton
 
@@ -21,9 +21,16 @@ class ErrorPanel(val browser: JBCefBrowser) : JPanel() {
         this.layout = BoxLayout(this, BoxLayout.PAGE_AXIS)
 
         label = JLabel(makeIcon())
-        label.text = "loading..."
+        label.text = getURI()
         label.alignmentX = Component.CENTER_ALIGNMENT
         this.add(label)
+
+        error = JLabel()
+        error.foreground = Color.RED
+        error.alignmentX = Component.CENTER_ALIGNMENT
+        this.add(error)
+
+        this.add(Box.createVerticalStrut(11))
 
         link = JButton("help")
         link.addActionListener() {
@@ -39,16 +46,15 @@ class ErrorPanel(val browser: JBCefBrowser) : JPanel() {
 
         button = JButton("refresh")
         button.addActionListener() {
-            label.foreground = Color.BLACK
-            label.text = "loading..."
-            browser.cefBrowser.reload()
+            error.text = ""
+            label.text = getURI()
+            browser.loadURL(label.text)
         }
         this.add(button)
     }
 
     fun setErrorText(text: String) {
-        label.foreground = Color.RED
-        label.text = text
+        error.text = text
     }
 
     private fun makeIcon(): ImageIcon {
