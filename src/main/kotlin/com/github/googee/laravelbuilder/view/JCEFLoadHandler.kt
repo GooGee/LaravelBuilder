@@ -2,6 +2,7 @@ package com.github.googee.laravelbuilder.view
 
 import com.github.googee.laravelbuilder.bridge.CodeFactory
 import com.github.googee.laravelbuilder.file.Site
+import com.intellij.openapi.application.ApplicationManager
 import org.cef.browser.CefBrowser
 import org.cef.browser.CefFrame
 import org.cef.handler.CefLoadHandler
@@ -28,8 +29,12 @@ class JCEFLoadHandler(val view: BuilderView, val cf: CodeFactory) : CefLoadHandl
     override fun onLoadEnd(p0: CefBrowser?, p1: CefFrame?, httpStatusCode: Int) {
         println("HTTP status: $httpStatusCode")
         if (httpStatusCode == 200) {
-            view.showWeb()
-            cf.inject()
+            ApplicationManager.getApplication().invokeLater(Runnable() {
+                run() {
+                    view.showWeb()
+                    cf.inject()
+                }
+            })
         }
     }
 }

@@ -32,6 +32,16 @@ class ErrorPanel(val browser: JBCefBrowser, val getURI: () -> String) : JPanel()
 
         this.add(Box.createVerticalStrut(11))
 
+        button = JButton("refresh")
+        button.addActionListener() {
+            error.text = ""
+            label.text = getURI()
+            browser.loadURL(label.text)
+        }
+        this.add(button)
+
+        this.add(Box.createVerticalStrut(11))
+
         link = JButton("help")
         link.addActionListener() {
             try {
@@ -41,16 +51,6 @@ class ErrorPanel(val browser: JBCefBrowser, val getURI: () -> String) : JPanel()
             }
         }
         this.add(link)
-
-        this.add(Box.createVerticalStrut(11))
-
-        button = JButton("refresh")
-        button.addActionListener() {
-            error.text = ""
-            label.text = getURI()
-            browser.loadURL(label.text)
-        }
-        this.add(button)
     }
 
     fun setErrorText(text: String) {
