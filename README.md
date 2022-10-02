@@ -15,11 +15,25 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+# Laravel Builder
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+use Doctrine to generate Migration
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+
+## Install
+
+```bash
+composer require --dev googee/laravel-builder
+
+php artisan vendor:publish --provider="GooGee\LaravelBuilder\LaravelBuilderServiceProvider"
+
+php artisan setupLaravelBuilder
+```
+
+## Where is it?
+
+PHPStorm Menu Bar -> Tools -> Laravel Builder
+
 <!-- Plugin description end -->
 
 ## Installation
