@@ -17,10 +17,22 @@
 <!-- Plugin description -->
 # Laravel Builder
 
-use Doctrine to generate Migration
+Intuitive and efficient tool for Laravel. [demo](https://googee.github.io/laravel-builder/build001)
 
 
-## Install
+## features
+
+- design database schemas
+- manage database migrations
+- generate OpenApi document
+- generate CRUD files
+
+You no longer need to write migrations yourself, Doctrine will do it for you.
+
+Doctrine compares files in `database/Entity` with database schemas, and generate a migration file of their difference.
+
+
+## install
 
 ```bash
 composer require --dev googee/laravel-builder
@@ -32,7 +44,7 @@ php artisan setupLaravelBuilder
 
 ## Where is it?
 
-PHPStorm Menu Bar -> Tools -> Laravel Builder
+PhpStorm Menu Bar -> Tools -> Laravel Builder
 
 <!-- Plugin description end -->
 
