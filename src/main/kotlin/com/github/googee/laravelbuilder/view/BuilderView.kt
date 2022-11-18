@@ -6,7 +6,7 @@ import com.jetbrains.rd.util.printlnError
 import java.awt.Color
 import javax.swing.*
 
-class BuilderView(val browser: JBCefBrowser, getURI: () -> String) : JPanel() {
+class BuilderView(browser: JBCefBrowser, getURI: () -> String) : JPanel() {
     private val panel: ErrorPanel
 
     init {
@@ -14,18 +14,13 @@ class BuilderView(val browser: JBCefBrowser, getURI: () -> String) : JPanel() {
         this.layout = BoxLayout(this, BoxLayout.PAGE_AXIS)
 
         panel = ErrorPanel(browser, getURI)
-        add(panel)
+        this.add(panel)
 
-        addBrowser()
-    }
-
-    private fun addBrowser() {
-        if (JBCefApp.isSupported() == false) {
-            showError("Error: JCEF is required")
-            return
+        if (JBCefApp.isSupported()) {
+            this.add(browser.component)
+        } else {
+            this.showError("Error: JCEF is required")
         }
-
-        this.add(browser.component)
     }
 
     fun showError(text: String) {
@@ -34,7 +29,9 @@ class BuilderView(val browser: JBCefBrowser, getURI: () -> String) : JPanel() {
     }
 
     fun showWeb() {
-        this.remove(0)
+        if (this.components.size == 2) {
+            this.remove(0)
+        }
         this.revalidate()
     }
 }

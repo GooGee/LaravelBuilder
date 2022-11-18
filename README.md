@@ -19,7 +19,6 @@
 
 Intuitive and efficient tool for Laravel. [demo](https://googee.github.io/laravel-builder/build001)
 
-
 ## features
 
 - design database schemas
@@ -28,9 +27,6 @@ Intuitive and efficient tool for Laravel. [demo](https://googee.github.io/larave
 - generate CRUD files
 
 You no longer need to write migrations yourself, Doctrine will do it for you.
-
-Doctrine compares files in `database/Entity` with database schemas, and generate a migration file of their difference.
-
 
 ## install
 
