@@ -11,16 +11,11 @@ class Site {
             if (FileManager.isFile(file)) {
                 return FileManager.read(file)
             }
-
-            val uri = System.getenv(Key)
-            if (uri.isNullOrEmpty()) {
-                return URI
-            }
-            return uri
+            return URI
         }
 
         fun getFullURI(fm: FileManager): String {
-            return getURI(fm) + "/build" + Version.get() + "?ide=idea"
+            return getURI(fm) + "?ide=idea"
         }
     }
 }
