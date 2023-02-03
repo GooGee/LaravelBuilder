@@ -17,7 +17,9 @@
 <!-- Plugin description -->
 # Laravel Builder
 
-Intuitive and efficient tool for Laravel. [demo](https://googee.github.io/laravel-builder/build001)
+You no longer need to write migrations, Doctrine will do it for you.
+
+[demo](https://googee.github.io/laravel-builder/build002)
 
 ## features
 
@@ -25,8 +27,6 @@ Intuitive and efficient tool for Laravel. [demo](https://googee.github.io/larave
 - manage database migrations
 - generate OpenApi document
 - generate CRUD files
-
-You no longer need to write migrations yourself, Doctrine will do it for you.
 
 ## install
 
