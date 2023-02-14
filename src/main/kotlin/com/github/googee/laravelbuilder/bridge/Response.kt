@@ -5,6 +5,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.*
 import java.net.HttpURLConnection
 
+@Suppress("PROVIDED_RUNTIME_TOO_LOW")
 @Serializable
 class Response(val action: String, val key: String, val data: String, val message: String, val status: Int) {
 
