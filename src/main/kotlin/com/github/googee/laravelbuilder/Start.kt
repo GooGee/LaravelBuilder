@@ -15,14 +15,13 @@ class Start {
 
         fun run(project: Project): BuilderView {
             val fm = FileManager(project)
-            val uri = Site.getFullURI(fm)
+            val uri = Site.getURI(fm)
             println("URI: $uri")
             val browser = JBCefBrowser(uri)
             val rm = RequestManager(fm, project)
             val cf = CodeFactory(browser, rm)
             val view = BuilderView(browser) {
-                println("URI: $uri")
-                Site.getFullURI(fm)
+                Site.getURI(fm)
             }
             val handler = JCEFLoadHandler(view, cf)
             browser.jbCefClient.addLoadHandler(handler, browser.cefBrowser)

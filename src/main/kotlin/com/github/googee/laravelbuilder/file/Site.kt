@@ -13,9 +13,5 @@ class Site {
             }
             return URI
         }
-
-        fun getFullURI(fm: FileManager): String {
-            return getURI(fm) + "?ide=idea"
-        }
     }
 }
