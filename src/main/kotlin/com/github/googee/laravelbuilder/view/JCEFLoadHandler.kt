@@ -1,7 +1,6 @@
 package com.github.googee.laravelbuilder.view
 
 import com.github.googee.laravelbuilder.bridge.CodeFactory
-import com.github.googee.laravelbuilder.file.Site
 import com.intellij.openapi.application.ApplicationManager
 import org.cef.browser.CefBrowser
 import org.cef.browser.CefFrame

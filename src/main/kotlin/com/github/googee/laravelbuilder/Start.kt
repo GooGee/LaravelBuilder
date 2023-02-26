@@ -23,8 +23,7 @@ class Start {
             val view = BuilderView(browser) {
                 Site.getURI(fm)
             }
-            val handler = JCEFLoadHandler(view, cf)
-            browser.jbCefClient.addLoadHandler(handler, browser.cefBrowser)
+            browser.jbCefClient.addLoadHandler(JCEFLoadHandler(view, cf), browser.cefBrowser)
             return view
         }
     }
