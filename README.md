@@ -17,7 +17,7 @@
 <!-- Plugin description -->
 # Laravel Builder
 
-Intuitive productivity tool for Laravel. [demo](https://googee.github.io/laravel-builder/build003)
+Intuitive productivity tool for Laravel. [demo](https://googee.github.io/laravel-builder/build004)
 
 You no longer need to write migrations, Doctrine will do it for you.
 
@@ -37,6 +37,9 @@ php artisan vendor:publish --provider="GooGee\LaravelBuilder\LaravelBuilderServi
 
 php artisan setupLaravelBuilder
 ```
+
+`buildPlugin` task is located in the right vertical bar.
+
 
 ## Where is it?
 
